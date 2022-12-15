@@ -20,7 +20,7 @@ def _convert_advertisement(
     Convert a Sensirion advertisement to a device name and a dictionary of sensor values.
     """
     if raw_data[0] == b"\x00":
-        samples = _parse_data_type(int(raw_data[2]), raw_data[4:])
+        samples = _parse_data_type(int(raw_data[1]), raw_data[4:])
         if not samples:
             return None
         return raw_data[2:4].hex().upper(), samples
